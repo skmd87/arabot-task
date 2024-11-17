@@ -37,6 +37,16 @@
 					v-model:language="form.language"
 				/>
 				<template-components-category v-model="form.category" />
+
+				<template
+					v-for="component, c in form.components"
+					:key="`comp-${c}`"
+				>
+					<component
+						:is="componentsMap[(component.type as keyof typeof componentsMap) ]"
+						v-model="form.components[c]"
+					/>
+				</template>
 			</v-defaults-provider>
 		</v-container>
 	</div>
@@ -44,6 +54,11 @@
 
 <script lang="ts" setup>
 import type { Template } from '~/types/TemplatesBody'
+import Header from '~/components/TemplateComponents/Header/index.vue'
+
+const componentsMap = {
+	HEADER: Header,
+}
 
 const inputsDefaults = {
 	variant: 'outlined',
@@ -60,8 +75,11 @@ const form = reactive<Template>({
 	category: 'MARKETING',
 	components: [
 		{
-			type: 'FOOTER',
-			text: 'Footer',
+			type: 'HEADER',
+			format: 'TEXT',
+			value: {
+				text: 'Hello World',
+			},
 		},
 
 	],
