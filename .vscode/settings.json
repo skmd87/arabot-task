@@ -1,0 +1,17 @@
+{
+	"eslint.format.enable": true,
+	"vue.autoInsert.dotValue": true,
+	"vue.inlayHints.missingProps": true,
+	"vue.inlayHints.inlineHandlerLeading": true,
+	"vue.inlayHints.destructuredProps": true,
+	"vue.inlayHints.optionsWrapper": true,
+	"vue.splitEditors.icon": true,
+	"i18n-ally.localesPaths": [
+		"i18n",
+		"i18n/locales"
+	],
+	"typescript.tsdk": "node_modules\\typescript\\lib",
+	"cSpell.words": [
+		"vuetify"
+	]
+}

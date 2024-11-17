@@ -1,15 +1,59 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    compatibilityDate: '2024-04-03',
-    devtools: {
-        enabled: false,
-    },
-    modules: [
-        '@formkit/auto-animate',
-        '@nuxt/eslint',
-        '@nuxtjs/i18n',
-        '@vueuse/nuxt',
-        'vuetify-nuxt-module',
-    ],
-    ssr: false,
+	modules: [
+		'@formkit/auto-animate',
+		'@nuxt/eslint',
+		'@nuxtjs/i18n',
+		'@vueuse/nuxt',
+		'vuetify-nuxt-module',
+		'@nuxt/fonts',
+	],
+	ssr: false,
+	devtools: {
+		enabled: false,
+	},
+	css: [
+		'@/assets/styles/main.scss',
+	],
+	compatibilityDate: '2024-04-03',
+	typescript: {
+		typeCheck: true,
+		strict: true,
+		shim: false, // assuming running volar with takeover mode
+	},
+	fonts: {
+		defaults: {
+			weights: ['100', '300', '400', '500', '600', '700', '900'],
+		},
+	},
+	i18n: {
+		locales: [
+			{
+				code: 'en_US',
+				file: 'en_US.json',
+			},
+			{
+				code: 'ar_SA',
+				file: 'ar_SA.json',
+			},
+		],
+		defaultLocale: 'en_US',
+
+	},
+	vuetify: {
+		vuetifyOptions: {
+			theme: {
+				defaultTheme: 'light',
+				themes: {
+					light: {
+						colors: {
+							background: '#f8f9fa',
+							btn: '#797fc2',
+						},
+					},
+				},
+			},
+		},
+	},
+
 })
