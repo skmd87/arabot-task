@@ -1,0 +1,68 @@
+<template>
+	<div>
+		<section-header
+			title="Buttons"
+			subtitle="Create buttons that let your customers respond to your message or take an action."
+		/>
+		<v-card
+			flat
+			class="pa-4"
+		>
+			<v-sheet
+				color="surface2"
+				class="pa-1 mb-2 d-inline-block"
+				rounded
+			>
+				<v-btn-toggle
+					v-model="tab"
+					mandatory
+					color="#000"
+					base-color="transparent"
+					variant="flat"
+					selected-class="bg-white"
+					rounded
+					class="hidden-overlay "
+					style="height:32px"
+					@update:model-value="tabChangeHandler"
+				>
+					<v-btn
+						value="NONE"
+						class="py-0"
+					>
+						None
+					</v-btn>
+
+					<v-btn value="ACTIONS">
+						<v-icon
+							icon="mdi-at"
+							start
+						/>Call To Actions
+					</v-btn>
+				</v-btn-toggle>
+			</v-sheet>
+
+			<div v-auto-animate>
+				<template-components-buttons-list
+					v-if="tab === 'ACTIONS'"
+					v-model="model.buttons"
+				/>
+			</div>
+		</v-card>
+	</div>
+</template>
+
+<script lang="ts" setup>
+import type { Buttons } from '~/types/TemplatesBody'
+
+const model = defineModel<Buttons>({
+	required: true,
+})
+
+const tab = ref<'NONE' | 'ACTIONS'>(model.value.buttons.length ? 'ACTIONS' : 'NONE')
+
+const tabChangeHandler = (value: 'NONE' | 'ACTIONS') => {
+	if (value === 'NONE') {
+		model.value.buttons = []
+	}
+}
+</script>

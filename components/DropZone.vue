@@ -3,6 +3,7 @@
 		<v-responsive
 			width="100%"
 			:aspect-ratio="16/9"
+			max-height="400"
 		>
 			<div
 				ref="dropZoneRef"
@@ -20,16 +21,22 @@
 				>
 					<v-icon
 						size="64"
-						icon="i-mdi:cloud-upload-outline"
+						icon="mdi-cloud-upload-outline"
 					/>
-					<div class="text">
-						{{ $t('DropZone.drag-and-drop-excel-file-here') }}
+					<div class="text-subtitle-1">
+						{{ title }}
 					</div>
-					<div class="or">
-						{{ $t('DropZone.or') }}
+					<div
+						v-if="subtitle"
+						class="text-subtitle-2 text-medium-emphasis mb-2"
+					>
+						{{ subtitle }}
 					</div>
-					<v-btn @click="dropzoneClickHandler">
-						{{ $t('DropZone.click-to-upload') }}
+					<v-btn
+						variant="outlined"
+						@click="dropzoneClickHandler"
+					>
+						Select Files
 					</v-btn>
 				</div>
 			</div>
@@ -42,12 +49,16 @@ type Props = {
 	dataTypes?: string[]
 	multiple?: boolean
 	loading?: boolean
+	title?: string
+	subtitle?: string
 }
 
 const p = withDefaults(defineProps<Props>(), {
 	dataTypes: () => [],
 	multiple: false,
 	loading: false,
+	title: 'Drop files here',
+	subtitle: '',
 })
 type Model = File | Array<File> | null
 
@@ -106,15 +117,6 @@ const dropzoneClickHandler = () => {
 			flex-direction: column;
 			align-items: center;
 
-			.text{
-				font-size: 20px;
-				margin-block: 12px;
-			}
-			.or{
-				font-size: 16px;
-				margin-bottom: 12px;
-				color: rgba(var(--v-theme-on-background), var(--v-medium-emphasis-opacity)) !important;
-			}
 		}
 	}
 </style>

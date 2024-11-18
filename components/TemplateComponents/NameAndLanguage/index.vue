@@ -12,8 +12,9 @@
 				Template Name <span class="text-error">*</span>
 			</v-label>
 			<v-text-field
-				v-model="nameModel"
+				v-model.trim="nameModel"
 				placeholder="Enter template name"
+				:rules="rules({ required: true, whitespace: true, max: 20 })"
 			/>
 			<v-label>
 				Language <span class="text-error">*</span>
@@ -21,6 +22,7 @@
 			<v-select
 				v-model="languageModel"
 				:items="['en_US', 'ar_SA']"
+				:rules="rules({ required: true })"
 			/>
 		</v-card>
 	</div>

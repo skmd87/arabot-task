@@ -11,7 +11,13 @@
     "lint": "eslint . --fix"
   },
   "dependencies": {
+    "@mdi/font": "^7.4.47",
+    "@vueuse/integrations": "^11.2.0",
     "@vueuse/nuxt": "^11.2.0",
+    "async-validator": "^4.2.5",
+    "country-flag-icons": "^1.5.13",
+    "google-libphonenumber": "^3.2.38",
+    "i18n-iso-countries": "^7.13.0",
     "nuxt": "^3.14.159",
     "vue": "latest",
     "vue-router": "latest",
@@ -22,8 +28,9 @@
     "@nuxt/eslint": "^0.6.1",
     "@nuxt/fonts": "^0.10.2",
     "@nuxtjs/i18n": "^9.0.0",
+    "@types/google-libphonenumber": "^7.4.30",
     "eslint": "9.13",
-    "sass-embedded": "^1.81.0",
+    "sass": "1.77",
     "vuetify-nuxt-module": "^0.18.3"
   }
 }

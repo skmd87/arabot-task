@@ -4,8 +4,9 @@
 			Text
 		</v-label>
 		<v-text-field
-			v-model="model.value.text"
+			v-model.trim="model.value.text"
 			placeholder="Please enter the text header here"
+			:rules="rules({ required: true, whitespace: true })"
 		/>
 	</div>
 </template>

@@ -1,1 +1,50 @@
-{}
+{
+	"rules": {
+		"field": "الحقل",
+		"default": "خطأ في التحقق في الحقل {field}",
+		"required": "{field} مطلوب",
+		"enum": "{field} يجب أن يكون واحدًا من {values}",
+		"whitespace": "{field} لا يمكن أن يكون فارغًا",
+		"date": {
+			"format": "تاريخ {field} {value} غير صالح للتنسيق {format}",
+			"parse": "لا يمكن تحليل تاريخ {field}، {value} غير صالح",
+			"invalid": "تاريخ {field} {value} غير صالح"
+		},
+		"types": {
+			"string": "{field} ليس {type}",
+			"method": "{field} ليس {type} (وظيفة)",
+			"array": "{field} ليس {type}",
+			"object": "{field} ليس {type}",
+			"number": "{field} ليس {type}",
+			"date": "{field} ليس {type}",
+			"boolean": "{field} ليس {type}",
+			"integer": "{field} ليس {type}",
+			"float": "{field} ليس {type}",
+			"regexp": "{field} ليس {type} صالحًا",
+			"email": "{field} ليس {type} صالحًا",
+			"url": "{field} ليس {type} صالحًا",
+			"hex": "{field} ليس {type} صالحًا"
+		},
+		"string": {
+			"len": "{field} يجب أن يكون بالضبط {len} حرفًا",
+			"min": "{field} يجب أن يكون على الأقل {min} حرفًا",
+			"max": "{field} لا يمكن أن يتجاوز {max} حرفًا",
+			"range": "{field} يجب أن يكون بين {min} و{max} حرفًا"
+		},
+		"number": {
+			"len": "{field} يجب أن يساوي {len}",
+			"min": "{field} لا يمكن أن يكون أقل من {min}",
+			"max": "{field} لا يمكن أن يكون أكبر من {max}",
+			"range": "{field} يجب أن يكون بين {min} و{max}"
+		},
+		"array": {
+			"len": "{field} يجب أن يكون بالضبط {len} طولًا",
+			"min": "{field} لا يمكن أن يكون أقل من {min} طولًا",
+			"max": "{field} لا يمكن أن يكون أطول من {max} طولًا",
+			"range": "{field} يجب أن يكون بين {min} و{max} طولًا"
+		},
+		"pattern": {
+			"mismatch": "قيمة {field} {value} لا تتطابق مع النمط {pattern}"
+		}
+	}
+}

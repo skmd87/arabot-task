@@ -1,8 +1,15 @@
 <template>
-	<drop-zone
-		:data-types="['image/*']"
-		@update:model-value="uploadHandler"
-	/>
+	<v-input
+		:model-value="model.value.url"
+		:rules="rules({ required: true, whitespace: true })"
+	>
+		<drop-zone
+			title="Drag and drop file here to upload or Browse"
+			subtitle="Allowed types .jpeg, .jpg, .png"
+			:data-types="['image/png', 'image/jpeg']"
+			@update:model-value="uploadHandler"
+		/>
+	</v-input>
 </template>
 
 <script lang="ts" setup>

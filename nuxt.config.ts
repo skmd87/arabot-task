@@ -30,10 +30,12 @@ export default defineNuxtConfig({
 		locales: [
 			{
 				code: 'en_US',
+				shortCode: 'en',
 				file: 'en_US.json',
 			},
 			{
 				code: 'ar_SA',
+				shortCode: 'ar',
 				file: 'ar_SA.json',
 			},
 		],
@@ -49,6 +51,7 @@ export default defineNuxtConfig({
 						colors: {
 							background: '#f8f9fa',
 							btn: '#797fc2',
+							surface2: '#edf2f7',
 						},
 					},
 				},

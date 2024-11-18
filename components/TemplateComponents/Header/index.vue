@@ -1,5 +1,5 @@
 <template>
-	<div class="mb-4">
+	<div>
 		<section-header
 			title="Header"
 			subtitle="Highlight your brand here, use images or videos, to stand out"
@@ -9,16 +9,25 @@
 			class="pa-4"
 		>
 			<v-sheet
-				color="#edf2f7"
-				class="pa-2 mb-2"
+				color="surface2"
+				class="pa-1 mb-2 d-inline-block"
+				rounded
 			>
 				<v-btn-toggle
 					v-model="format"
 					mandatory
-					color="transparent"
+					color="#000"
+					base-color="transparent"
+					variant="flat"
 					selected-class="bg-white"
+					rounded
+					class="hidden-overlay "
+					style="height:32px"
 				>
-					<v-btn value="NONE">
+					<v-btn
+						value="NONE"
+						class="py-0"
+					>
 						None
 					</v-btn>
 
@@ -32,7 +41,7 @@
 					<v-btn value="IMAGE">
 						<v-icon
 							start
-							icon="i-mdi:image-outline"
+							icon="mdi-image-outline"
 						/> Image
 					</v-btn>
 				</v-btn-toggle>

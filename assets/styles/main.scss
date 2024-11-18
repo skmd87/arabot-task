@@ -27,8 +27,18 @@ html {
 	letter-spacing: 0 !important;
 }
 
+.v-btn-group {
+	&.hidden-overlay .v-btn__overlay {
+		display: none;
+	}
+}
 
 .v-label {
 	font-weight: 500 !important;
-	opacity: 1,
+	opacity: 1;
+}
+@media (min-width: 1280px) {
+    .v-container {
+        max-width: 1440px !important;
+    }
 }
