@@ -10,26 +10,65 @@
 					<v-icon
 						icon="mdi-plus"
 						start
-					/> New Template Message
+					/> {{ $t('index.new-template-message') }}
 				</v-app-bar-title>
+				<div class="hidden-sm-and-down">
+					<div class="d-flex ga-2">
+						<!-- <v-btn
+							text="Preview"
+							prepend-icon="mdi-eye-check-outline"
+							variant="text"
+							height="40"
+							color="btn"
+							@click="previewHandler"
+						/> -->
+						<v-btn
+							:text="otherLocale.shortCode.toUpperCase()"
+							variant="text"
+							height="40"
+							color="btn"
+							@click="changeLocaleHandler"
+						/>
+						<v-btn
+							text="Save"
+							prepend-icon="mdi-content-save-outline"
+							variant="flat"
+							height="40"
+							color="btn"
+							:loading="isSaving"
+							@click="saveHandler"
+						/>
+					</div>
+				</div>
 				<v-btn
-					text="Preview"
-					prepend-icon="mdi-eye-check-outline"
+					icon
 					variant="text"
-					height="40"
-					color="btn"
 					class="hidden-md-and-up"
-					@click="previewHandler"
-				/>
-				<v-btn
-					text="Save"
-					prepend-icon="mdi-content-save-outline"
-					variant="flat"
-					height="40"
-					color="btn"
-					:loading="isSaving"
-					@click="saveHandler"
-				/>
+				>
+					<v-icon icon="mdi-dots-vertical" />
+					<v-menu activator="parent">
+						<v-list
+							slim
+							density="compact"
+						>
+							<v-list-item
+								:title="$t('index.save')"
+								prepend-icon="mdi-content-save-outline"
+								@click="saveHandler"
+							/>
+							<v-list-item
+								:title="$t('index.preview')"
+								prepend-icon="mdi-eye-check-outline"
+								@click="previewHandler"
+							/>
+							<v-list-item
+								:title="$t('index.switch-to-otherlocale', [otherLocale.shortCode.toUpperCase()])"
+								prepend-icon="mdi-translate"
+								@click="changeLocaleHandler"
+							/>
+						</v-list>
+					</v-menu>
+				</v-btn>
 			</v-container>
 		</v-app-bar>
 		<v-container class="py-0">
@@ -135,6 +174,8 @@
 import { VForm, VSnackbar } from 'vuetify/components'
 import type { Body, Buttons, Footer, Header, Template } from '~/types/TemplatesBody'
 
+const { locales, locale, setLocale, t } = useI18n()
+
 const formRef = ref<InstanceType<typeof VForm>>()
 
 const inputsDefaults = {
@@ -144,10 +185,10 @@ const inputsDefaults = {
 	bgColor: 'white',
 }
 
-const breadcrumbItems = [
-	{ title: 'Templates', disabled: false, href: '/templates' },
-	{ title: 'New Template Message', disabled: true },
-]
+const breadcrumbItems = computed(() => [
+	{ title: t('index.templates'), disabled: false, href: '/templates' },
+	{ title: t('index.new-template-message'), disabled: true },
+])
 
 const form = reactive<Template>({
 	category: 'MARKETING',
@@ -241,5 +282,13 @@ const saveHandler = async () => {
 
 const previewHandler = () => {
 	bottomSheetModel.value = true
+}
+
+const otherLocale = computed(() => locales.value.find(l => l.code !== locale.value))
+
+// const other
+
+const changeLocaleHandler = () => {
+	setLocale(otherLocale.value.code)
 }
 </script>

@@ -1,50 +1,122 @@
 {
-	"rules": {
-		"field": "الحقل",
-		"default": "خطأ في التحقق في الحقل {field}",
-		"required": "{field} مطلوب",
-		"enum": "{field} يجب أن يكون واحدًا من {values}",
-		"whitespace": "{field} لا يمكن أن يكون فارغًا",
-		"date": {
-			"format": "تاريخ {field} {value} غير صالح للتنسيق {format}",
-			"parse": "لا يمكن تحليل تاريخ {field}، {value} غير صالح",
-			"invalid": "تاريخ {field} {value} غير صالح"
-		},
-		"types": {
-			"string": "{field} ليس {type}",
-			"method": "{field} ليس {type} (وظيفة)",
-			"array": "{field} ليس {type}",
-			"object": "{field} ليس {type}",
-			"number": "{field} ليس {type}",
-			"date": "{field} ليس {type}",
-			"boolean": "{field} ليس {type}",
-			"integer": "{field} ليس {type}",
-			"float": "{field} ليس {type}",
-			"regexp": "{field} ليس {type} صالحًا",
-			"email": "{field} ليس {type} صالحًا",
-			"url": "{field} ليس {type} صالحًا",
-			"hex": "{field} ليس {type} صالحًا"
-		},
-		"string": {
-			"len": "{field} يجب أن يكون بالضبط {len} حرفًا",
-			"min": "{field} يجب أن يكون على الأقل {min} حرفًا",
-			"max": "{field} لا يمكن أن يتجاوز {max} حرفًا",
-			"range": "{field} يجب أن يكون بين {min} و{max} حرفًا"
-		},
-		"number": {
-			"len": "{field} يجب أن يساوي {len}",
-			"min": "{field} لا يمكن أن يكون أقل من {min}",
-			"max": "{field} لا يمكن أن يكون أكبر من {max}",
-			"range": "{field} يجب أن يكون بين {min} و{max}"
-		},
-		"array": {
-			"len": "{field} يجب أن يكون بالضبط {len} طولًا",
-			"min": "{field} لا يمكن أن يكون أقل من {min} طولًا",
-			"max": "{field} لا يمكن أن يكون أطول من {max} طولًا",
-			"range": "{field} يجب أن يكون بين {min} و{max} طولًا"
-		},
-		"pattern": {
-			"mismatch": "قيمة {field} {value} لا تتطابق مع النمط {pattern}"
-		}
-	}
+    "rules": {
+        "field": "الحقل",
+        "default": "خطأ في التحقق في الحقل {field}",
+        "required": "{field} مطلوب",
+        "enum": "{field} يجب أن يكون واحدًا من {values}",
+        "whitespace": "{field} لا يمكن أن يكون فارغًا",
+        "date": {
+            "format": "تاريخ {field} {value} غير صالح للتنسيق {format}",
+            "parse": "لا يمكن تحليل تاريخ {field}، {value} غير صالح",
+            "invalid": "تاريخ {field} {value} غير صالح"
+        },
+        "types": {
+            "string": "{field} ليس {type}",
+            "method": "{field} ليس {type} (وظيفة)",
+            "array": "{field} ليس {type}",
+            "object": "{field} ليس {type}",
+            "number": "{field} ليس {type}",
+            "date": "{field} ليس {type}",
+            "boolean": "{field} ليس {type}",
+            "integer": "{field} ليس {type}",
+            "float": "{field} ليس {type}",
+            "regexp": "{field} ليس {type} صالحًا",
+            "email": "{field} ليس {type} صالحًا",
+            "url": "{field} ليس {type} صالحًا",
+            "hex": "{field} ليس {type} صالحًا"
+        },
+        "string": {
+            "len": "{field} يجب أن يكون بالضبط {len} حرفًا",
+            "min": "{field} يجب أن يكون على الأقل {min} حرفًا",
+            "max": "{field} لا يمكن أن يتجاوز {max} حرفًا",
+            "range": "{field} يجب أن يكون بين {min} و{max} حرفًا"
+        },
+        "number": {
+            "len": "{field} يجب أن يساوي {len}",
+            "min": "{field} لا يمكن أن يكون أقل من {min}",
+            "max": "{field} لا يمكن أن يكون أكبر من {max}",
+            "range": "{field} يجب أن يكون بين {min} و{max}"
+        },
+        "array": {
+            "len": "{field} يجب أن يكون بالضبط {len} طولًا",
+            "min": "{field} لا يمكن أن يكون أقل من {min} طولًا",
+            "max": "{field} لا يمكن أن يكون أطول من {max} طولًا",
+            "range": "{field} يجب أن يكون بين {min} و{max} طولًا"
+        },
+        "pattern": {
+            "mismatch": "قيمة {field} {value} لا تتطابق مع النمط {pattern}"
+        }
+    },
+    "Preview": {
+        "preview": "معاينة"
+    },
+    "Body": {
+        "body": "الجسم",
+        "enter-the-text-of-your-message-in-the-language-you": "أدخل نص رسالتك باللغة التي اخترتها"
+    },
+    "index": {
+        "new-template-message": "رسالة القالب الجديد",
+        "preview": "معاينة",
+        "save": "الحفظ",
+        "switch-to-otherlocale": "التبديل إلى {0}",
+        "templates": "القوالب"
+    },
+    "Buttons": {
+        "buttons": "الأزرار",
+        "call-to-actions": "دعوة إلى العمل",
+        "create-buttons-that-let-your-customers-respond-to-": "قم بإنشاء أزرار تتيح لعملائك الرد على رسالتك أو اتخاذ إجراء ما.",
+        "none": "لا يوجد"
+    },
+    "Category": {
+        "category": "الفئة",
+        "choose-your-message-template": "اختر قالب رسالتك",
+        "marketing": "التسويق",
+        "send-messages-about-an-existing-order-or-account": "إرسال رسائل حول طلب أو حساب موجود.",
+        "send-promotions-and-information-about-your-product": "إرسال عروض ترويجية ومعلومات عن منتجاتك أو خدماتك أو نشاطك التجاري.",
+        "utility": "المرافق"
+    },
+    "DropZone": {
+        "clear": "واضح",
+        "select-files": "تحديد الملفات"
+    },
+    "Footer": {
+        "enter-text": "أدخل النص",
+        "footer": "التذييل",
+        "use-this-section-for-optional-details-like-disclai": "استخدم هذا القسم للتفاصيل الاختيارية مثل إخلاء المسؤولية أو معلومات الاتصال أو السياق الإضافي."
+    },
+    "Header": {
+        "header": "الرأس",
+        "highlight-your-brand-here-use-images-or-videos-to-": "قم بإبراز علامتك التجارية هنا، واستخدم الصور أو مقاطع الفيديو، لتتميز عن الآخرين",
+        "image": "الصورة",
+        "none": "لا يوجد",
+        "text": "النص"
+    },
+    "Image": {
+        "allowed-types-jpeg-jpg-png": "الأنواع المسموح بها .jpeg، .jpg، .png",
+        "drag-and-drop-file-here-to-upload-or-browse": "اسحب الملف وأفلته هنا للتحميل أو تصفح"
+    },
+    "Item": {
+        "button-text": "نص الزر",
+        "button-type": "نوع الزر",
+        "invalid-phone-number": "رقم هاتف غير صالح",
+        "phone-number": "رقم الهاتف",
+        "visit-website": "زيارة الموقع الإلكتروني",
+        "website-url": "عنوان الموقع الإلكتروني"
+    },
+    "List": {
+        "add-a-button": "إضافة زر",
+        "there-is-no-any-button-yet": "لا يوجد أي زر حتى الآن."
+    },
+    "NameAndLanguage": {
+        "arabic-saudi-arabia": "العربية (المملكة العربية السعودية)",
+        "define-your-template-name-and-language": "تحديد اسم القالب ولغته",
+        "english-us": "الإنجليزية (الولايات المتحدة)",
+        "language": "اللغة",
+        "template-details": "تفاصيل القالب",
+        "template-name": "اسم القالب"
+    },
+    "Text": {
+        "please-enter-the-text-header-here": "يُرجى إدخال رأس النص هنا",
+        "text": "النص"
+    }
 }

@@ -11,7 +11,7 @@
 					lg="4"
 				>
 					<v-label>
-						Button type <span class="text-error">*</span>
+						{{ $t('Item.button-type') }} <span class="text-error">*</span>
 					</v-label>
 					<v-select
 						:model-value="model.type"
@@ -25,7 +25,7 @@
 					lg="3"
 				>
 					<v-label>
-						Button Text <span class="text-error">*</span>
+						{{ $t('Item.button-text') }} <span class="text-error">*</span>
 					</v-label>
 					<v-text-field
 						v-model.trim="model.text"
@@ -39,7 +39,7 @@
 				>
 					<template v-if="model.type === 'CALL'">
 						<v-label>
-							Phone Number <span class="text-error">*</span>
+							{{ $t('Item.phone-number') }} <span class="text-error">*</span>
 						</v-label>
 
 						<v-input
@@ -55,6 +55,7 @@
 									item-value="value"
 									class="me-2"
 									max-width="90"
+									min-width="90"
 								>
 									<template #selection="{ item }">
 										<div
@@ -78,7 +79,7 @@
 
 					<template v-else-if="model.type === 'URL'">
 						<v-label>
-							Website URL <span class="text-error">*</span>
+							{{ $t('Item.website-url') }} <span class="text-error">*</span>
 						</v-label>
 
 						<v-text-field
@@ -118,14 +119,16 @@ type Emit = {
 
 defineEmits<Emit>()
 
+const { t } = useI18n()
+
 const typeItems = [
 	{
 		value: 'CALL',
-		title: 'Phone Number',
+		title: t('Item.phone-number'),
 	},
 	{
 		value: 'URL',
-		title: 'Visit Website',
+		title: t('Item.visit-website'),
 	},
 ]
 
@@ -209,13 +212,13 @@ const validNumber = (value: string | undefined) => {
 	try {
 		const parsedNumber = phoneUtil.parse(value)
 		if (!phoneUtil.isValidNumber(parsedNumber)) {
-			return 'Invalid phone number'
+			return t('Item.invalid-phone-number')
 		}
 
 		return true
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	} catch (_e) {
-		return 'Invalid phone number'
+		return t('Item.invalid-phone-number')
 	}
 }
 </script>

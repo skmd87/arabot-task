@@ -48,14 +48,13 @@
 						class="me-2"
 						@click="clearHandler"
 					>
-						Clear
+						{{ $t('DropZone.clear') }}
 					</v-btn>
 					<v-btn
 						variant="outlined"
-
 						@click="dropzoneClickHandler"
 					>
-						Select Files
+						{{ $t('DropZone.select-files') }}
 					</v-btn>
 				</div>
 			</div>

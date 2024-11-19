@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<section-header
-			title="Buttons"
-			subtitle="Create buttons that let your customers respond to your message or take an action."
+			:title="$t('Buttons.buttons')"
+			:subtitle="$t('Buttons.create-buttons-that-let-your-customers-respond-to-')"
 		/>
 		<v-card
 			flat
@@ -29,14 +29,15 @@
 						value="NONE"
 						class="py-0"
 					>
-						None
+						{{ $t('Buttons.none') }}
 					</v-btn>
 
 					<v-btn value="ACTIONS">
 						<v-icon
 							icon="mdi-at"
 							start
-						/>Call To Actions
+						/>
+						{{ $t('Buttons.call-to-actions') }}
 					</v-btn>
 				</v-btn-toggle>
 			</v-sheet>

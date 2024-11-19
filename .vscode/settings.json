@@ -13,5 +13,6 @@
 	"typescript.tsdk": "node_modules\\typescript\\lib",
 	"cSpell.words": [
 		"vuetify"
-	]
+	],
+	"i18n-ally.keystyle": "nested"
 }

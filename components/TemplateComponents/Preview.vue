@@ -1,11 +1,12 @@
 <template>
 	<v-sheet
 		width="400"
+		max-width="100%"
 		color="transparent"
 		class="py-4"
 	>
 		<div class="text-center text-subtitle-1">
-			Preview
+			{{ $t('Preview.preview') }}
 		</div>
 
 		<div class="position-relative">

@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<section-header
-			title="Footer"
-			subtitle="Use this section for optional details like disclaimers, contact info, or additional context."
+			:title="$t('Footer.footer')"
+			:subtitle="$t('Footer.use-this-section-for-optional-details-like-disclai')"
 		/>
 		<v-card
 			flat
@@ -10,7 +10,7 @@
 		>
 			<v-text-field
 				v-model="model.text "
-				placeholder="Enter text"
+				:placeholder="$t('Footer.enter-text')"
 			/>
 		</v-card>
 	</div>

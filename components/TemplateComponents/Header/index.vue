@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<section-header
-			title="Header"
-			subtitle="Highlight your brand here, use images or videos, to stand out"
+			:title="$t('Header.header')"
+			:subtitle="$t('Header.highlight-your-brand-here-use-images-or-videos-to-')"
 		/>
 		<v-card
 			flat
@@ -28,21 +28,21 @@
 						value="NONE"
 						class="py-0"
 					>
-						None
+						{{ $t('Header.none') }}
 					</v-btn>
 
 					<v-btn value="TEXT">
 						<v-icon
 							icon="mdi-menu"
 							start
-						/> Text
+						/> {{ $t('Header.text') }}
 					</v-btn>
 
 					<v-btn value="IMAGE">
 						<v-icon
 							start
 							icon="mdi-image-outline"
-						/> Image
+						/> {{ $t('Header.image') }}
 					</v-btn>
 				</v-btn-toggle>
 			</v-sheet>

@@ -11,7 +11,7 @@
 		</div>
 		<v-empty-state v-if="!model.length">
 			<template #title>
-				There is no any button yet.
+				{{ $t('List.there-is-no-any-button-yet') }}
 			</template>
 		</v-empty-state>
 		<div class="text-center">
@@ -20,7 +20,7 @@
 				variant="text"
 				@click="addHandler"
 			>
-				Add a button
+				{{ $t('List.add-a-button') }}
 			</v-btn>
 		</div>
 	</div>

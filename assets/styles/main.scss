@@ -1,5 +1,4 @@
 html {
-	font-family: "Tajawal" !important;
 	.text-h1,
 	.text-h2,
 	.text-h3,
@@ -36,4 +35,12 @@ html {
 .v-label {
 	font-weight: 500 !important;
 	opacity: 1;
+}
+.no-item-flex {
+	.v-card-item {
+		flex: unset;
+		.v-card-subtitle {
+			white-space: unset;
+		}
+	}
 }

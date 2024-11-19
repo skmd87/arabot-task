@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<section-header
-			title="Category"
-			subtitle="Choose your message template"
+			:title="$t('Category.category')"
+			:subtitle="t('Category.choose-your-message-template')"
 		/>
 		<v-card
 			flat
@@ -16,11 +16,11 @@
 					<v-card
 						v-for="item, i in items"
 						:key="i"
-						:color="item.color"
+						:color="item.value === model? item.color:undefined"
 						rounded
 						flat
-
-						class="pa-2 mb-2 d-flex align-center"
+						border
+						class="pa-2 mb-2 d-flex align-center no-item-flex"
 						@click="(model = item.value as Template['category'])"
 					>
 						<template #prepend>
@@ -28,13 +28,7 @@
 								<v-icon :icon="item.icon" />
 							</v-avatar>
 						</template>
-						<template #append>
-							<v-spacer />
-							<v-icon
-								v-if="item.value === model"
-								icon="mdi-check"
-							/>
-						</template>
+
 						<template #item>
 							<div>
 								<v-card-title class="pb-0">
@@ -45,18 +39,6 @@
 								</v-card-subtitle>
 							</div>
 						</template>
-						<!-- <v-list-item
-
-							v-bind="item"
-							variant="tonal"
-							class="mb-2 pa-2"
-						>
-							<template #prepend="{}">
-								<v-avatar color="white">
-									<v-icon :icon="item.icon" />
-								</v-avatar>
-							</template>
-						</v-list-item> -->
 					</v-card>
 				</div>
 			</v-input>
@@ -71,20 +53,22 @@ import type { Template } from '~/types/TemplatesBody'
 
 const model = defineModel<Template['category']>()
 
-const items = [
+const { t } = useI18n()
+
+const items = computed(() => [
 	{
-		title: 'Marketing',
-		subtitle: 'Send promotions and information about your products, services or business.',
+		title: t('Category.marketing'),
+		subtitle: t('Category.send-promotions-and-information-about-your-product'),
 		value: 'MARKETING',
 		color: '#E4E5EF',
 		icon: MarketingIcon,
 	},
 	{
-		title: 'Utility',
-		subtitle: 'Send messages about an existing order or account.',
+		title: t('Category.utility'),
+		subtitle: t('Category.send-messages-about-an-existing-order-or-account'),
 		value: 'UTILITY',
 		color: '#EDF2F7',
 		icon: UtilityIcon,
 	},
-]
+])
 </script>

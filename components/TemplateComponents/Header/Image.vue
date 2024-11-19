@@ -5,8 +5,8 @@
 	>
 		<drop-zone
 			:model-value="model.value.url"
-			title="Drag and drop file here to upload or Browse"
-			subtitle="Allowed types .jpeg, .jpg, .png"
+			:title="$t('Image.drag-and-drop-file-here-to-upload-or-browse')"
+			:subtitle="$t('Image.allowed-types-jpeg-jpg-png')"
 			:data-types="['image/png', 'image/jpeg']"
 			@update:model-value="uploadHandler"
 		/>

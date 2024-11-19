@@ -1,15 +1,15 @@
 <template>
 	<div class="mb-4">
 		<section-header
-			title="Template Details"
-			subtitle="Define your template name and language"
+			:title="$t('NameAndLanguage.template-details')"
+			:subtitle="$t('NameAndLanguage.define-your-template-name-and-language')"
 		/>
 		<v-card
 			flat
 			class="pa-4"
 		>
 			<v-label>
-				Template Name <span class="text-error">*</span>
+				{{ $t('NameAndLanguage.template-name') }} <span class="text-error">*</span>
 			</v-label>
 			<v-text-field
 				v-model.trim="nameModel"
@@ -17,7 +17,7 @@
 				:rules="rules({ required: true, whitespace: true, max: 20 })"
 			/>
 			<v-label>
-				Language <span class="text-error">*</span>
+				{{ $t('NameAndLanguage.language') }} <span class="text-error">*</span>
 			</v-label>
 			<v-select
 				v-model="languageModel"
@@ -35,14 +35,16 @@ const nameModel = defineModel<Template['name']>('name')
 
 const languageModel = defineModel<Template['language']>('language')
 
-const languageItems = [
+const { t } = useI18n()
+
+const languageItems = ref([
 	{
-		title: 'English (US)',
+		title: t('NameAndLanguage.english-us'),
 		value: 'en_US',
 	},
 	{
-		title: 'Arabic (Saudi Arabia)',
+		title: t('NameAndLanguage.arabic-saudi-arabia'),
 		value: 'ar_SA',
 	},
-]
+])
 </script>

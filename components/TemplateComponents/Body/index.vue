@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<section-header
-			title="Body"
-			subtitle="Enter the text of your message in the language you've selected"
+			:title="$t('Body.body')"
+			:subtitle="$t('Body.enter-the-text-of-your-message-in-the-language-you')"
 		/>
 		<v-card
 			flat

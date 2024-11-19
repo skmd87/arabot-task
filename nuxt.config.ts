@@ -32,15 +32,17 @@ export default defineNuxtConfig({
 				code: 'en_US',
 				shortCode: 'en',
 				file: 'en_US.json',
+				dir: 'ltr',
 			},
 			{
 				code: 'ar_SA',
 				shortCode: 'ar',
 				file: 'ar_SA.json',
+				dir: 'rtl',
 			},
 		],
 		defaultLocale: 'en_US',
-
+		strategy: 'no_prefix',
 	},
 	vuetify: {
 		vuetifyOptions: {
