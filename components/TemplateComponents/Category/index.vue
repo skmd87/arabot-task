@@ -19,7 +19,7 @@
 						:color="item.color"
 						rounded
 						flat
-						:class="[item.value === model? 'border-md': 'opacity-50']"
+
 						class="pa-2 mb-2 d-flex align-center"
 						@click="(model = item.value as Template['category'])"
 					>
@@ -28,9 +28,13 @@
 								<v-icon :icon="item.icon" />
 							</v-avatar>
 						</template>
-						<!-- <template #append>
-							<v-radio :model-value="item.value === model" />
-						</template> -->
+						<template #append>
+							<v-spacer />
+							<v-icon
+								v-if="item.value === model"
+								icon="mdi-check"
+							/>
+						</template>
 						<template #item>
 							<div>
 								<v-card-title class="pb-0">
@@ -61,6 +65,8 @@
 </template>
 
 <script lang="ts" setup>
+import MarketingIcon from '~/components/Icons/Marketing.vue'
+import UtilityIcon from '~/components/Icons/Utility.vue'
 import type { Template } from '~/types/TemplatesBody'
 
 const model = defineModel<Template['category']>()
@@ -71,14 +77,14 @@ const items = [
 		subtitle: 'Send promotions and information about your products, services or business.',
 		value: 'MARKETING',
 		color: '#E4E5EF',
-		icon: 'mdi-bullhorn-variant-outline',
+		icon: MarketingIcon,
 	},
 	{
 		title: 'Utility',
 		subtitle: 'Send messages about an existing order or account.',
 		value: 'UTILITY',
 		color: '#EDF2F7',
-		icon: 'mdi-bell-outline',
+		icon: UtilityIcon,
 	},
 ]
 </script>

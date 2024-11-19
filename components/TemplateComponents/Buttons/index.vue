@@ -52,17 +52,24 @@
 </template>
 
 <script lang="ts" setup>
-import type { Buttons } from '~/types/TemplatesBody'
+import type { Buttons, Button } from '~/types/TemplatesBody'
 
 const model = defineModel<Buttons>({
 	required: true,
 })
 
+const buttonsHistory = ref<Button[] | null>(null)
+
 const tab = ref<'NONE' | 'ACTIONS'>(model.value.buttons.length ? 'ACTIONS' : 'NONE')
 
 const tabChangeHandler = (value: 'NONE' | 'ACTIONS') => {
 	if (value === 'NONE') {
+		buttonsHistory.value = model.value.buttons
 		model.value.buttons = []
+	} else {
+		if (buttonsHistory.value) {
+			model.value.buttons = buttonsHistory.value
+		}
 	}
 }
 </script>

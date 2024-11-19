@@ -4,6 +4,7 @@
 		:rules="rules({ required: true, whitespace: true })"
 	>
 		<drop-zone
+			:model-value="model.value.url"
 			title="Drag and drop file here to upload or Browse"
 			subtitle="Allowed types .jpeg, .jpg, .png"
 			:data-types="['image/png', 'image/jpeg']"
@@ -19,9 +20,11 @@ const model = defineModel<ImageHeader>({
 	required: true,
 })
 
-const uploadHandler = (file: File | File[] | null) => {
-	// array check is only for typing purposes
-	if (!file || Array.isArray(file)) return
+const uploadHandler = (file: File | string | null) => {
+	if (!file || typeof file === 'string') {
+		model.value.value.url = ''
+		return
+	}
 
 	const reader = new FileReader()
 	reader.onload = (e) => {

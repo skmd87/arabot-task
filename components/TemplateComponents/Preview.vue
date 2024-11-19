@@ -162,7 +162,10 @@
 
 				</defs>
 			</svg>
-			<v-sheet class="message-box">
+			<v-sheet
+				class="message-box"
+				:dir="template.language === 'ar_SA'? 'rtl': 'ltr'"
+			>
 				<div
 					v-if="header?.format === 'TEXT'"
 					class="header text"
@@ -172,8 +175,14 @@
 				<div
 					v-else-if="header?.format === 'IMAGE'"
 					class="header image"
+					:class="{ 'no-url': !header?.value.url }"
 				>
-					d
+					<v-img
+						:src="header.value.url"
+						:aspect-ratio="290/200"
+						cover
+						rounded="lg"
+					/>
 				</div>
 
 				<div
@@ -217,7 +226,10 @@
 							v-else-if="btn.type === 'URL'"
 							class="url"
 						>
-							<a :href="btn.value.url">
+							<a
+								:href="btn.value.url"
+								target="_blank"
+							>
 								<v-icon
 									start
 									size="12"
@@ -282,8 +294,11 @@ const buttons = computed(() => p.template.components.find(component => component
 		&.image{
 			width: 100%;
 			height: 100%;
-			background-color: #E2E8F0;
+			&.no-url{
+				background-color: #E2E8F0;
+			}
 		}
+
 	}
 
 	.body{

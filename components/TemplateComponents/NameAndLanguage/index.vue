@@ -21,7 +21,7 @@
 			</v-label>
 			<v-select
 				v-model="languageModel"
-				:items="['en_US', 'ar_SA']"
+				:items="languageItems"
 				:rules="rules({ required: true })"
 			/>
 		</v-card>
@@ -34,4 +34,15 @@ import type { Template } from '~/types/TemplatesBody'
 const nameModel = defineModel<Template['name']>('name')
 
 const languageModel = defineModel<Template['language']>('language')
+
+const languageItems = [
+	{
+		title: 'English (US)',
+		value: 'en_US',
+	},
+	{
+		title: 'Arabic (Saudi Arabia)',
+		value: 'ar_SA',
+	},
+]
 </script>

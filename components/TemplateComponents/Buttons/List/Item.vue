@@ -8,7 +8,7 @@
 			<v-row>
 				<v-col
 					cols="12"
-					lg="3"
+					lg="4"
 				>
 					<v-label>
 						Button type <span class="text-error">*</span>
@@ -35,7 +35,7 @@
 				</v-col>
 				<v-col
 					cols="12"
-					lg="6"
+					lg="5"
 				>
 					<template v-if="model.type === 'CALL'">
 						<v-label>
@@ -58,8 +58,8 @@
 								>
 									<template #selection="{ item }">
 										<div
-											class="rounded"
-											style="width: 32px;"
+											class="rounded overflow-hidden"
+											style="width: 32px; height: 19px;"
 											v-html="item.raw.flag"
 										/>
 									</template>
@@ -90,7 +90,7 @@
 			</v-row>
 		</v-sheet>
 		<v-btn
-			icon="mdi-delete-outline"
+			:icon="DeleteIcon"
 			variant="text"
 			@click="$emit('remove')"
 		/>
@@ -102,6 +102,7 @@ import { PhoneNumberUtil } from 'google-libphonenumber'
 import { getName, registerLocale } from 'i18n-iso-countries'
 import { hasFlag } from 'country-flag-icons'
 import * as flags from 'country-flag-icons/string/3x2'
+import DeleteIcon from '~/components/Icons/Delete.vue'
 import type { Button } from '~/types/TemplatesBody'
 
 registerLocale(await import('i18n-iso-countries/langs/en.json'))

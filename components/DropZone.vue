@@ -1,24 +1,24 @@
 <template>
-	<v-input>
-		<v-responsive
-			width="100%"
-			:aspect-ratio="16/9"
-			max-height="400"
+	<v-responsive
+		width="100%"
+		:aspect-ratio="16/9"
+		max-height="400"
+	>
+		<div
+			ref="dropZoneRef"
+			class="dropzone"
+			:class="{ 'file-over': isOverDropZone }"
 		>
+			<v-progress-circular
+				v-if="loading"
+				indeterminate
+				size="80"
+			/>
 			<div
-				ref="dropZoneRef"
-				class="dropzone"
-				:class="{ 'file-over': isOverDropZone }"
+				v-else
+				class="content"
 			>
-				<v-progress-circular
-					v-if="loading"
-					indeterminate
-					size="80"
-				/>
-				<div
-					v-else
-					class="content"
-				>
+				<template v-if="!previewURL">
 					<v-icon
 						size="64"
 						icon="mdi-cloud-upload-outline"
@@ -32,22 +32,40 @@
 					>
 						{{ subtitle }}
 					</div>
+				</template>
+				<template v-else>
+					<v-img
+						:src="previewURL"
+						width="80%"
+						:aspect-ratio="16/9"
+						min-width="100"
+					/>
+				</template>
+				<div class="my-2">
+					<v-btn
+						v-if="previewURL"
+						variant="outlined"
+						class="me-2"
+						@click="clearHandler"
+					>
+						Clear
+					</v-btn>
 					<v-btn
 						variant="outlined"
+
 						@click="dropzoneClickHandler"
 					>
 						Select Files
 					</v-btn>
 				</div>
 			</div>
-		</v-responsive>
-	</v-input>
+		</div>
+	</v-responsive>
 </template>
 
 <script lang="ts" setup>
 type Props = {
 	dataTypes?: string[]
-	multiple?: boolean
 	loading?: boolean
 	title?: string
 	subtitle?: string
@@ -55,24 +73,23 @@ type Props = {
 
 const p = withDefaults(defineProps<Props>(), {
 	dataTypes: () => [],
-	multiple: false,
 	loading: false,
 	title: 'Drop files here',
 	subtitle: '',
 })
-type Model = File | Array<File> | null
+type Model = File | string | null
 
 const model = defineModel<Model>()
 
 const dropZoneRef = ref<HTMLDivElement>()
 
 function onDrop(files: File[] | null) {
-	if (!p.multiple) {
-		files = files ? [files[0]] : null
-	}
 	if (files) {
 		// check files type
-		model.value = files.filter(file => p.dataTypes.includes(file.type))
+		files = files.filter(file => p.dataTypes.includes(file.type))
+		if (files.length > 0) {
+			model.value = files[0]
+		}
 	}
 }
 
@@ -85,7 +102,6 @@ const dropzoneClickHandler = () => {
 	const input = document.createElement('input')
 	input.type = 'file'
 	input.accept = p.dataTypes.join(',')
-	input.multiple = p.multiple
 	input.onchange = (e) => {
 		const files = (e.target as HTMLInputElement).files
 		if (files) {
@@ -93,6 +109,20 @@ const dropzoneClickHandler = () => {
 		}
 	}
 	input.click()
+}
+
+const previewURL = computed<null | string>(() => {
+	if (!model.value) return null
+
+	if (typeof model.value === 'string') {
+		return model.value
+	}
+
+	return model.value ? URL.createObjectURL(model.value) : ''
+})
+
+const clearHandler = () => {
+	model.value = null
 }
 </script>
 
@@ -116,7 +146,7 @@ const dropzoneClickHandler = () => {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-
+			flex-grow: 1;
 		}
 	}
 </style>
