@@ -19,7 +19,6 @@ export default defineNuxtConfig({
 	typescript: {
 		typeCheck: true,
 		strict: true,
-		shim: false, // assuming running volar with takeover mode
 	},
 	fonts: {
 		defaults: {

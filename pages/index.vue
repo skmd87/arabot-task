@@ -206,7 +206,7 @@ const form = reactive<Template>({
 		},
 		{
 			type: 'FOOTER',
-			text: 'Powered by Samer',
+			text: 'Powered by Arabot',
 		},
 		{
 			type: 'BUTTONS',
