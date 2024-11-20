@@ -28,8 +28,7 @@ const uploadHandler = (file: File | string | null) => {
 
 	const reader = new FileReader()
 	reader.onload = (e) => {
-		// do the upload here
-		console.log('🚀 ~ uploadHandler ~ e:', e)
+		// do the upload here, for task purposes we will use the file reader result as base64
 		model.value.value.url = e.target?.result as string
 	}
 	reader.readAsDataURL(file)

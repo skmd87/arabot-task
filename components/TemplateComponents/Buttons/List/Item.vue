@@ -169,7 +169,6 @@ const nationalNumber = computed({
 		}
 	},
 	set(nationalNumber: string) {
-		console.log('🚀 ~ set ~ value:', nationalNumber)
 		if (model.value.type !== 'CALL') {
 			return
 		}

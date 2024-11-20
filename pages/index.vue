@@ -139,7 +139,7 @@
 				>
 					<template-components-preview
 						:template="form"
-						class="position-sticky top-0 me-n4"
+						class="position-sticky top-0"
 					/>
 				</v-col>
 			</v-row>

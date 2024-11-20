@@ -21,7 +21,7 @@
 				<template v-if="!previewURL">
 					<v-icon
 						size="64"
-						icon="mdi-cloud-upload-outline"
+						:icon="UploadIcon"
 					/>
 					<div class="text-subtitle-1">
 						{{ title }}
@@ -63,6 +63,8 @@
 </template>
 
 <script lang="ts" setup>
+import UploadIcon from '~/components/Icons/Upload.vue'
+
 type Props = {
 	dataTypes?: string[]
 	loading?: boolean
